@@ -20,14 +20,66 @@
 	For example:
 		output [0:3] Z;
 
-////////////// ___DATAFLOW STYLE___
+////////////// HOW TO USE THE VERILOG MODULE DESIGN STYLES
+
+	There are 3 styles which are explain by sections:
+	-Dataflow Style
+	-Behavioral Style
+	-Structural Style
+
+////////////// HOW TO ASSIGN A PORT AS A REGISTER
+
+	The registers retain the value until a new value is assign
+
+	It's possible to make a port as a register:
+          ~Assign the type first:
+                type port_name;
+          ~Make it a register:
+                reg port_name;
+
+	Use the same name. Make it in the declarations and initial 
+	statements sections.
+
+////////////// HOW TO CREATE A SEQUENTIAL BLOCK
+
+	These are loops which are executed when the conditional is true
+	
+	In behavioral style the "always statements" are within a sequential
+	blocks
+
+	The syntaxis is as follows:
+		always
+		@ (<conditional>) begin
+		  <statement #1>;
+		  <...>;
+		  <statement #2>;
+		end
+
+////////////// HOW TO ___DATAFLOW STYLE___
 
 	-Continuos statements (assignment)
 		assign [ delay ] LHS_net = RHS_expression;
 	 LHS: Left-hand side
 	 RHS: Right-hand side
 
-	-Use "internal" wires for the module
+	-Uses "internal" wires for the module
 		wire name_wire_1, name_wire_2;
 	 It's not necessary to declare these wires as module's argument
 
+////////////// HOW TO ___BEHAVIORAL STYLE___
+
+	-Uses procedural constructs:
+	  ~Initial statement: Once >Setup()
+	  ~Always statement: Loop >Loop()
+	This is like an Arduino code. Both statements begin in time 0 
+
+	-Uses "internal" registers which retain the value until a new
+	value has been assigned.
+
+	-It's possible to make a port as a register:
+	  ~Assign the type first:
+	  	type port_name;
+	  ~Make it a register:
+	  	reg port_name;
+
+////////////// HOW TO ___STRUCTURAL STYLE___
