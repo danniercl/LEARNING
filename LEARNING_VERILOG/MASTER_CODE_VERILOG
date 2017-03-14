@@ -1,0 +1,33 @@
+////////////// HOW TO COMMENT IN VERILOG
+
+	Using double slash:
+		// Here the comment
+	
+	Using this key /* */ like C language
+		/* Here you can put your
+		   comment and close whenever */
+
+////////////// HOW TO SET THE TIME DELAY UNIT
+
+	In the compiler directives (preambules): `timescale time/precision
+		`timescale 1ns/10ps
+	Without ";"
+
+////////////// HOW TO CREATE A PORT ARRAY
+
+	In the declaration use this syntaxis
+		type(input, output, inout) [0:n] port_name;
+	For example:
+		output [0:3] Z;
+
+////////////// ___DATAFLOW STYLE___
+
+	-Continuos statements (assignment)
+		assign [ delay ] LHS_net = RHS_expression;
+	 LHS: Left-hand side
+	 RHS: Right-hand side
+
+	-Use "internal" wires for the module
+		wire name_wire_1, name_wire_2;
+	 It's not necessary to declare these wires as module's argument
+
