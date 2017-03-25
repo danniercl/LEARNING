@@ -89,11 +89,32 @@
 		  instance_name2(port_out, port_in_1, ..., port_in_n);
 
 	Example:
-	  xor
-	    X1(S1, A, B),
-	    X2(Sum, S1, Cin);
-	  or
-	    O1(Cout, T1, T2, T3);
+		  xor
+		    X1(S1, A, B),
+		    X2(Sum, S1, Cin);
+		  or
+		    O1(Cout, T1, T2, T3);
+
+	This logical modules are part of the standard libraries. It's
+	possible to assign the module's arguments without the
+	predeterminated order in the function.
+
+////////////// HOW TO ASSIGN THE PORT WITHOUT ORDER INTO A MODULE INSTANCE
+
+	For this, it's necessary to specify the arg name from the 
+	original module declaration. Syntaxis:
+
+		original_module_name
+		  instance_name(.port_original_name(port));
+
+	Example:
+		// Original module
+		module half_adder (A, B, Cout);
+		...
+
+		// Module instantiation
+		half_adder
+		  my_instance (.Cout(my_port_out), .A(my_port), .B(my_other_port));
 
 ////////////// HOW TO ___DATAFLOW STYLE___
 
