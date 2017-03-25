@@ -16,13 +16,13 @@
 ////////////// HOW TO CREATE A PORT ARRAY
 
 	In the declaration use this syntaxis
-		type(input, output, inout) [0:n] port_name;
+		<type:input, output, inout> [0:n] port_name;
 	For example:
 		output [0:3] Z;
 
 ////////////// HOW TO USE THE VERILOG MODULE DESIGN STYLES
 
-	There are 3 styles which are explain by sections:
+	There are 4 styles which are explain by sections:
 	-Dataflow Style
 	-Behavioral Style
 	-Structural Style
@@ -40,6 +40,24 @@
 	Use the same name. Make it in the declarations and initial 
 	statements sections.
 
+////////////// HOW TO SPECIFY A DELAY FORM
+	
+        Delay is represented by the syntaxis '#n' where 'n' is the quantity
+	of time units specified in the directives `timescale        
+
+	There are two forms:
+	-Inter-statement delay:
+	  It is how long the statement's execution is delayed after the 
+	  previous execution finish. Syntaxis:
+	    [ delay ] LHS_net = RHS_expresion
+	  Example:
+	  	#4 T1 = A + B;
+  
+	-Intra-statement delay:
+	  It is the delay it takes to compute a value from RSH to LHS.
+	  Example:
+	  	T1 = #4 A + B;
+
 ////////////// HOW TO CREATE A SEQUENTIAL BLOCK
 
 	These are loops which are executed when the conditional is true
@@ -54,6 +72,28 @@
 		  <...>;
 		  <statement #2>;
 		end
+
+////////////// HOW TO DO PARAMENTER/VARIABLE/MACRO
+
+	It is initialized and declared into a module. It is like a
+	C Macro model, but I guess it is just for numbers. Syntaxis:
+		parameter NAME = NUMBER;
+
+////////////// HOW TO DO A MODULE INSTANCE
+
+	It's used in structural style. First the module name and then
+	the instance, all into a method. Syntaxis:
+		module_name
+		  instance_name1(port_out, port_in_1, ..., port_in_n),
+		  ...
+		  instance_name2(port_out, port_in_1, ..., port_in_n);
+
+	Example:
+	  xor
+	    X1(S1, A, B),
+	    X2(Sum, S1, Cin);
+	  or
+	    O1(Cout, T1, T2, T3);
 
 ////////////// HOW TO ___DATAFLOW STYLE___
 
@@ -78,8 +118,12 @@
 
 	-It's possible to make a port as a register:
 	  ~Assign the type first:
-	  	type port_name;
+	  	<type> port_name;
 	  ~Make it a register:
 	  	reg port_name;
 
 ////////////// HOW TO ___STRUCTURAL STYLE___
+
+	-Interconnections are specified using nets (wires, regs, etc)
+
+	-It uses module instances
