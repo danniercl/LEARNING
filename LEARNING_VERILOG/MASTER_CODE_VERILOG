@@ -15,7 +15,7 @@
 
 ////////////// HOW TO CREATE A PORT ARRAY
 
-	In the declaration use this syntaxis
+	In the declaration use this syntaxis:
 		<type:input, output, inout> [0:n] port_name;
 	For example:
 		output [0:3] Z;
@@ -23,13 +23,13 @@
 ////////////// HOW TO USE THE VERILOG MODULE DESIGN STYLES
 
 	There are 4 styles which are explain by sections:
-	-Dataflow Style
-	-Behavioral Style
-	-Structural Style
+	-Dataflow Style.
+	-Behavioral Style.
+	-Structural Style.
 
 ////////////// HOW TO ASSIGN A PORT AS A REGISTER
 
-	The registers retain the value until a new value is assign
+	The registers retain the value until a new value is assign.
 
 	It's possible to make a port as a register:
           ~Assign the type first:
@@ -49,7 +49,7 @@
 	-Inter-statement delay:
 	  It is how long the statement's execution is delayed after the 
 	  previous execution finish. Syntaxis:
-	    [ delay ] LHS_net = RHS_expresion
+	    [ delay ] LHS_net = RHS_expresion;
 	  Example:
 	  	#4 T1 = A + B;
   
@@ -60,17 +60,17 @@
 
 ////////////// HOW TO CREATE A SEQUENTIAL BLOCK
 
-	These are loops which are executed when the conditional is true
+	These are loops which are executed when the conditional is true.
 	
 	In behavioral style the "always statements" are within a sequential
-	blocks
+	blocks.
 
 	The syntaxis is as follows:
 		always
 		@ (<conditional>) begin
 		  <statement #1>;
 		  <...>;
-		  <statement #2>;
+		  <statement #n>;
 		end
 
 ////////////// HOW TO DO PARAMENTER/VARIABLE/MACRO
@@ -145,6 +145,39 @@
 
 ////////////// HOW TO ___STRUCTURAL STYLE___
 
-	-Interconnections are specified using nets (wires, regs, etc)
+	-Interconnections are specified using nets (wires, regs, etc).
 
-	-It uses module instances
+	-It uses module instances.
+
+////////////// HOW TO SIMULATE A DESIGN
+
+	Create a module that may have an empty port list (without inputs
+	and outputs). It's a test module. Syntaxis:
+		module Module_name;
+
+	Stimulus and control can be generated using an inicial statement.
+	Syntaxis:
+		initial
+		  begin
+		    <statement>;
+		    ...
+		  end
+
+////////////// HOW TO CREATE A LOOP
+	
+	There are a two ways to create a loop in Verilog:
+	  ~FOR:
+	    for (prmtr = #, <conditional>, prmtr = prmtr +- #)
+	    begin
+	      <statement #1>;
+              <...>;
+              <statement #n>;
+	    end
+	    
+	  ~ALWAYS:
+	    always
+              @ (<conditional>) begin
+                <statement #1>;
+                <...>;
+                <statement #n>;
+              end
