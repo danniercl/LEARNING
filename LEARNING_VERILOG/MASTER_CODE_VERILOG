@@ -73,11 +73,23 @@
 		  <statement #n>;
 		end
 
-////////////// HOW TO DO PARAMENTER/VARIABLE/MACRO
+////////////// HOW TO DO A GLOBAL AND LOCAL PARAMETERS/VARIABLES
 
-	It is initialized and declared into a module. It is like a
-	C Macro model, but I guess it is just for numbers. Syntaxis:
+	It is initialized and declared into a module (global variable) or 
+	into block (local). It's not like a C Macro model, but I guess it 
+	is just for numbers.
+	Syntaxis:
 		parameter NAME = NUMBER;
+		reg REG_NAME;
+		wire WIRE_NAME;
+
+	To create a local parameter/variable (into a begin-end block) it's
+	necessary to label the block. Syntaxis:
+		begin: MY_LABEL
+		  parameter my_local_prmtr = #;
+		  reg my_local_reg;
+		  ...
+		end
 
 ////////////// HOW TO DO A MODULE INSTANCE
 
