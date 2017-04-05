@@ -193,3 +193,19 @@
                 <...>;
                 <statement #n>;
               end
+
+////////////// HOW TO DO A SYSTEM TASK
+	
+	This task are done using the symbol "$" and then the syntaxis of
+	the task. It's possible to use a delay for this.
+
+	~Print a string in console. It includes the new line:
+		[ delay ] $display("Put the message here %b", param_name);
+
+	~Print a string whenever a change occurs in some variable in
+	the arguments list.
+		$monitor("Put the number %b", param_1, " and %b", param_2);
+
+	~Finish the stimulus module
+		$finish
+
